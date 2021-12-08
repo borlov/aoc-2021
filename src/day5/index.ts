@@ -5,7 +5,12 @@ const inputFile = path.join(__dirname, 'input');
 
 const getFileData = (file: string = inputFile) => readFile(file).map(item => {
   const match = item.match(/(\d+),(\d+) -> (\d+),(\d+)/);
-  return match && [parseInt(match[1], 10), parseInt(match[2], 10), parseInt(match[3], 10), parseInt(match[4], 10)];
+  return match && [
+    parseInt(match[1], 10),
+    parseInt(match[2], 10),
+    parseInt(match[3], 10),
+    parseInt(match[4], 10)
+  ];
 }).filter(item => item) as number[][];
 
 type Table = { [key: string]: number };
@@ -18,7 +23,9 @@ const addItem = (result: Table, x: number, y: number) => {
 export const runPart1 = (file?: string) => {
   const data = getFileData(file);
 
-  const vectors = data.filter(item => item[0] === item[2] || item[1] === item[3]);
+  const vectors = data.filter(item =>
+    item[0] === item[2] || item[1] === item[3]
+  );
   const table: Table = vectors.reduce((result, item) => {
     if (item[0] === item[2]) {
       const yStart = Math.min(item[1], item[3]);
@@ -36,12 +43,17 @@ export const runPart1 = (file?: string) => {
     return result;
   }, {});
 
-  return Object.values(table).reduce((sum, item) => item > 1 ? sum + 1 : sum, 0);
+  return Object.values(table)
+    .reduce((sum, item) => item > 1 ? sum + 1 : sum, 0);
 }
 
 export const runPart2 = (file?: string) => {
   const data = getFileData(file);
-  const vectors = data.filter(item => item[0] === item[2] || item[1] === item[3] || Math.abs(item[0] - item[2]) === Math.abs(item[1] - item[3]));
+  const vectors = data.filter(item =>
+    item[0] === item[2] ||
+    item[1] === item[3] ||
+    Math.abs(item[0] - item[2]) === Math.abs(item[1] - item[3])
+  );
 
   const table: Table = vectors.reduce((result, item) => {
     const xStart = item[0];
@@ -60,5 +72,8 @@ export const runPart2 = (file?: string) => {
     return result;
   }, {});
 
-  return Object.values(table).reduce((sum, item) => item > 1 ? sum + 1 : sum, 0);
+  return Object.values(table).reduce(
+    (sum, item) => item > 1 ? sum + 1 : sum,
+    0
+  );
 }

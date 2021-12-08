@@ -3,13 +3,17 @@ import { readFile } from '../utils/index';
 
 const inputFile = path.join(__dirname, 'input');
 
-const getFileData = (file: string = inputFile) => readFile(file)[0].split(',').map(item => parseInt(item, 10));
+const getFileData = (file: string = inputFile) =>
+  readFile(file)[0]
+    .split(',')
+    .map(item => parseInt(item, 10));
 
-const getFuel = (positions: number[], position: number, stepFuelDiff = 0) => positions.reduce((sum, item) => {
-  const steps = Math.abs(item - position);
-  const fuel = steps * (2 + stepFuelDiff * (steps - 1)) / 2;
-  return sum + fuel;
-}, 0);
+const getFuel = (positions: number[], position: number, stepFuelDiff = 0) =>
+  positions.reduce((sum, item) => {
+    const steps = Math.abs(item - position);
+    const fuel = steps * (2 + stepFuelDiff * (steps - 1)) / 2;
+    return sum + fuel;
+  }, 0);
 
 export const runPart1 = (file?: string, stepFuelDiff = 0) => {
   const positions = getFileData(file);

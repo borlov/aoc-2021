@@ -41,7 +41,11 @@ export const runPart2 = (file?: string) => {
   const nBits = data[0].length;
 
   const filterList = (list: string[], i: number, isMostCommon: boolean) => {
-    const compare = list.reduce((sum, item) => sum + ((item[i] === '0') ? -1 : 1), 0);
+    const compare = list.reduce(
+      (sum, item) => sum + ((item[i] === '0') ? -1 : 1),
+      0
+    );
+
     let filterBit: string;
     if (isMostCommon) {
       filterBit = compare >= 0 ? '1' : '0';

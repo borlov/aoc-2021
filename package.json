@@ -41,6 +41,12 @@
         {
           "avoidEscape": true
         }
+      ],
+      "max-len": [
+        "error",
+        {
+          "code": 80
+        }
       ]
     },
     "ignorePatterns": [

@@ -3,7 +3,10 @@ import { readFile } from '../utils/index';
 
 const inputFile = path.join(__dirname, 'input');
 
-const getFileData = (file: string = inputFile) => readFile(file)[0].split(',').map(item => parseInt(item, 10));
+const getFileData = (file: string = inputFile) =>
+  readFile(file)[0]
+    .split(',')
+    .map(item => parseInt(item, 10));
 
 export const runPart1 = (file?: string, days = 80) => {
   const data = getFileData(file);

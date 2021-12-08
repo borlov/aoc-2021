@@ -3,7 +3,8 @@ import { readFile } from '../utils/index';
 
 const inputFile = path.join(__dirname, 'input');
 
-const getFileData = (file: string = inputFile) => readFile(file).map(item => item.split(' '));
+const getFileData = (file: string = inputFile) => readFile(file)
+  .map(item => item.split(' '));
 
 export const runPart1 = (file?: string) => {
   const data = getFileData(file);
