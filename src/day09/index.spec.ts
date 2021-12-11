@@ -3,7 +3,7 @@ import { runPart1, runPart2} from '.';
 
 const mockFile = path.join(__dirname, 'mock');
 
-describe('day9', () => {
+describe('day09', () => {
   it('runs part1 as expected', () => {
     expect(runPart1(mockFile)).toBe(15);
   })

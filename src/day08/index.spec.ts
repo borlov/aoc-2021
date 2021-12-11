@@ -3,11 +3,11 @@ import { runPart1, runPart2} from '.';
 
 const mockFile = path.join(__dirname, 'mock');
 
-describe('day2', () => {
+describe('day08', () => {
   it('runs part1 as expected', () => {
-    expect(runPart1(mockFile)).toBe(150);
+    expect(runPart1(mockFile)).toBe(26);
   })
   it('runs part2 as expected', () => {
-    expect(runPart2(mockFile)).toBe(900);
+    expect(runPart2(mockFile)).toBe(61229);
   })
 });
