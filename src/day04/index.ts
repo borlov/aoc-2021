@@ -10,7 +10,7 @@ export const runPart1 = (file?: string) => {
 
   const inputs = data[0].split(',').map(item => parseInt(item, 10));
   const nCards = (data.length - 1) / 5;
-  let cards = [];
+  const cards = [];
 
   for (let i = 0; i < nCards; i++) {
     cards[i] = { rows: [], columns: [] } as {
@@ -29,7 +29,7 @@ export const runPart1 = (file?: string) => {
   }
 
   let resultCard;
-  let lastInput: number = 0;
+  let lastInput = 0;
 
   for (let i = 0; i < inputs.length; i++) {
     lastInput = inputs[i];
@@ -50,7 +50,7 @@ export const runPart1 = (file?: string) => {
   const restSum = resultCard?.rows.reduce((sum, item) =>
     sum + item.reduce((itemSum, a) => itemSum + a, 0),
     0
-  ) || 0;
+  ) as number;
 
   return lastInput * restSum;
 }
@@ -82,7 +82,7 @@ export const runPart2 = (file?: string) => {
   }
 
   let resultCard;
-  let lastInput: number = 0;
+  let lastInput = 0;
 
   for (let i = 0; i < inputs.length; i++) {
     lastInput = inputs[i];
@@ -109,7 +109,7 @@ export const runPart2 = (file?: string) => {
   const restSum = resultCard?.rows.reduce((sum, item) =>
     sum + item.reduce((itemSum, a) => itemSum + a, 0),
     0
-  ) || 0;
+  ) as number;
 
   return lastInput * restSum;
 }

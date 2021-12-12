@@ -9,7 +9,7 @@ const getFileData = (file: string = inputFile) =>
 export const runPart1 = (file?: string) => {
   const table = getFileData(file);
   const nColumns = table[0].length;
-  let lowPoints: number[] = [];
+  const lowPoints: number[] = [];
   for (let i = 0; i < table.length; i++) {
     for (let j = 0; j < nColumns; j++) {
       const item = table[i][j];

@@ -43,7 +43,7 @@ const doStep = (table: number[][]): number => {
 };
 
 export const runPart1 = (file?: string) => {
-  let table = getFileData(file);
+  const table = getFileData(file);
   let nFlashes = 0;
   for (let i = 0; i < 100; i++) {
     nFlashes += doStep(table);

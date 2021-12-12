@@ -18,10 +18,9 @@ const getScore = (
   }: GetScoreProps
 ): number =>
   list.reduce(
-    (sum: number, item: string) => {
-      const score = scoreTable[item] || 0;
-      return sumMultiplier * sum + score;
-    },
+    (sum: number, item: string) => (
+      sumMultiplier * sum + scoreTable[item]
+    ),
     0
   );
 
@@ -69,7 +68,7 @@ export const runPart2 = (file?: string) => {
     '>': 4
   };
 
-  let resultTable = cleanedData
+  const resultTable = cleanedData
     .filter(item => !item.match(/\)|\]|\}|>/))
     .map(item => {
       const missingParts = item

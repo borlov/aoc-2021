@@ -23,13 +23,7 @@ export const runPart1 = (file?: string) => {
         return;
       case 'up':
         y -= distance;
-        if (y < 0) {
-          console.log('above sea lvl: ', y);
-          y = 0;
-        }
         return;
-      default:
-        console.error('not supported command: ', command);
     }
   });
 
@@ -56,10 +50,6 @@ export const runPart2 = (file?: string) => {
         return;
       case 'up':
         aim -= distance;
-        if (aim < 0) console.error('aim less than zero: ', aim);
-        return;
-      default:
-        console.error('not supported command: ', command);
     }
   });
 
