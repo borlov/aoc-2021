@@ -33,13 +33,11 @@ const fold = (dots: Dot[], instruction: Instruction): Dot[] =>
       let x = dot[0];
       let y = dot[1];
       if (instruction.axis === Axis.x) {
-        if (dot[0] === instruction.value) return;
         x = dot[0] < instruction.value ?
           dot[0] : 2 * instruction.value - dot[0];
       }
 
       if (instruction.axis === Axis.y) {
-        if (dot[1] === instruction.value) return;
         y = dot[1] < instruction.value ?
           dot[1] : 2 * instruction.value - dot[1];
       }
@@ -61,7 +59,7 @@ export const runPart1 = (file?: string) => {
   return dots.length;
 }
 
-export const runPart2 = (file?: string, skipReturnValue = true) => {
+export const runPart2 = (file?: string, isPrint = true) => {
   const data = getFileData(file);
   let dots = data.dots;
   data.instructions.forEach(instruction => {
@@ -84,8 +82,9 @@ export const runPart2 = (file?: string, skipReturnValue = true) => {
     }
   }
 
-  console.log(output);
-
-  if (skipReturnValue) return;
-  return output;
+  if (isPrint) {
+    console.log(output);
+  } else {
+    return output;
+  }
 }

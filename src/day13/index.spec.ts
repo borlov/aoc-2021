@@ -16,5 +16,6 @@ describe('day13', () => {
   })
   it('runs part2 as expected', () => {
     expect(runPart2(mockFile, false)).toBe(part2Result);
+    expect(runPart2(mockFile, true)).toBe(undefined);
   })
 });
