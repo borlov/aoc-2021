@@ -17,7 +17,6 @@ const increment = (
   key: string,
   amount = 1
 ) => {
-  if (!obj[key]) obj[key] = 0;
   obj[key] = (obj[key] || 0) + amount;
 }
 
